@@ -5,11 +5,13 @@ using UnityEngine.UI;
 
 public class JournalManager : MonoBehaviour
 {
+    [SerializeField] Image[] ImagesCaptured;
+
+
     Dictionary<string, Image> journalPhotos = new Dictionary<string, Image>();
     void Start()
     {
-        Image[] slotImages = GetComponentsInChildren<Image>();
-        foreach (Image slot in slotImages)
+        foreach (Image slot in ImagesCaptured)
         {
             string tag = slot.gameObject.tag;
             if (!journalPhotos.ContainsKey(tag))
